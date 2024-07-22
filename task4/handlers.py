@@ -68,7 +68,7 @@ def set_contact_phone(args, contacts: dict):
 
 get_contact_phone_error = partial(
     error.input_error,
-    value_error="Please enter both name and phone number."
+    value_error="Please enter name to get contact for"
 )
 
 
@@ -81,6 +81,9 @@ def get_contact_phone(args, contacts: dict):
     :param contacts: contacts dictionary
     :return: contact phone number
     """
+
+    if len(args) == 0:
+        raise ValueError
 
     name = args[0]
 
